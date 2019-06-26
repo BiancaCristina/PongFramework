@@ -11,6 +11,6 @@ public interface PongBuilder {
     PongBuilder criarJogadores(Jogador... jogadores);
     PongBuilder criarObstaculos(Obstaculo... obstaculos);
     PongBuilder criarLinhaObstaculos(LinhaObstaculo... linhaObstaculos);
-    PongBuilder criarBorda(BordaObstaculo borda);
+    PongBuilder criarBorda(BordaObstaculoBuilder borda);
     Pong get();
 }

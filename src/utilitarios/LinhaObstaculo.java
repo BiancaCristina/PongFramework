@@ -1,7 +1,5 @@
 package utilitarios;
 
-import builders.ObstaculoBuilder;
-
 import java.awt.*;
 
 public abstract class LinhaObstaculo extends Ponto {

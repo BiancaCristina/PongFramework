@@ -2,49 +2,11 @@ package builders;
 
 import utilitarios.Jogador;
 
-public class JogadorBuilder {
-    protected JogadorImpl jogador;
-
-    public JogadorBuilder() {
-        this.jogador = new JogadorImpl();
-        this.jogador.setAceleracaoSup(false);
-        this.jogador.setAceleracaoInf(false);
-        this.jogador.setPontuacao(0);
-        this.jogador.setVelY(0);
-    }
-
-    public static JogadorBuilder builder() {
-        return new JogadorBuilder();
-    }
-
-    public JogadorBuilder definirLargura(int largura) {
-        this.jogador.setLargura(largura);
-        return this;
-    }
-
-    public JogadorBuilder definirAltura(int altura) {
-        this.jogador.setAltura(altura);
-        return this;
-    }
-
-    public JogadorBuilder definirDistParede(int distParede) {
-        this.jogador.setDistParede(distParede);
-        this.jogador.setX(distParede);
-        return this;
-    }
-
-    public JogadorBuilder definirLado(int jogador, int larguraPainel) {
-        if (jogador == 1) this.jogador.setDistParede(this.jogador.getDistParede());
-        else this.jogador.setDistParede(larguraPainel - this.jogador.getLargura() - this.jogador.getDistParede());
-        return this;
-    }
-
-    public JogadorBuilder definirPosicaoInicial(int alturaPainel) {
-        this.jogador.setY(alturaPainel/2);
-        return this;
-    }
-
-    public Jogador get() {
-        return this.jogador;
-    }
+public interface JogadorBuilder {
+    JogadorBuilder definirLargura(int largura);
+    JogadorBuilder definirAltura(int altura);
+    JogadorBuilder definirDistParede(int distParede);
+    JogadorBuilder definirLado(int jogador, int larguraPainel);
+    JogadorBuilder definirPosicaoInicial(int alturaPainel);
+    Jogador get();
 }
