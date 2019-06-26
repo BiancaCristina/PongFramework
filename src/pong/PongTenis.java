@@ -3,8 +3,8 @@ package pong;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class PongFutebol extends Pong {
-
+public class PongTenis extends Pong {
+    @Override
     public void paintComponent(Graphics g) {
         BufferedImage bufferedImage = new BufferedImage(getLargura(), getAltura(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = bufferedImage.createGraphics();
@@ -13,7 +13,6 @@ public class PongFutebol extends Pong {
         g2d.fillRect(0, 0, getLargura(), getAltura());
 
         if (isAcabou() && isTipoJogo()) {
-            // Apenas encerra a partida caso não seja modo treino
             g2d.setColor(Color.RED);
             g2d.drawString("Fim de jogo!", 350, 250);
         }
@@ -32,28 +31,21 @@ public class PongFutebol extends Pong {
                 getJogadorEsq().desenhar(g2d);
                 getJogadorDir().desenhar(g2d);
                 getBola().desenhar(g2d);
-                getLinhaObstaculoEsq().desenhar(g2d);
-                getLinhaObstaculoDir().desenhar(g2d);
-                getBordaObstaculo().desenhar(g2d);
             }
         }
 
         Graphics2D g2dComponent = (Graphics2D)g;
         g2dComponent.drawImage(bufferedImage, null, 0,0);
+
     }
 
-    @Override
     public void iniciarPong() {
         while(!isAcabou()) {
-            getJogadorEsq().mover(getAltura() - getBordaObstaculo().getBordaSup().getAltura());
-            getJogadorDir().mover(getAltura() - getBordaObstaculo().getBordaSup().getAltura());
+            getJogadorEsq().mover(getAltura());
+            getJogadorDir().mover(getAltura());
             getBola().mover(getAltura());
             getBola().verificaColisao(getJogadorEsq(), getJogadorDir(), getLargura());
-            getBola().verificaColisao(getBordaObstaculo(), getAltura(), getLargura());
-            getBola().verificaColisao(getLinhaObstaculoEsq());
-            getBola().verificaColisao(getLinhaObstaculoDir());
-            getLinhaObstaculoEsq().mover(getAltura() - getBordaObstaculo().getBordaSup().getAltura());
-            getLinhaObstaculoDir().mover(getAltura() - getBordaObstaculo().getBordaSup().getAltura());
+
             repaint();
 
             try {

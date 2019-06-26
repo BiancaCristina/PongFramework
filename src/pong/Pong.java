@@ -2,28 +2,23 @@ package pong;
 
 
 import utilitarios.Bola;
+import utilitarios.BordaObstaculo;
 import utilitarios.Jogador;
+import utilitarios.LinhaObstaculo;
 
 import javax.swing.*;
 
 public abstract class Pong extends JPanel {
     private int largura;
     private int altura;
-    private Jogador j1;
-    private Jogador j2;
-    private Bola b;
+    private Jogador jogadorEsq;
+    private Jogador jogadorDir;
+    private Bola bola;
     private boolean tipoJogo;
     private boolean acabou;
-
-    public Pong(Jogador j1, Bola b, boolean tipoJogo, int largura, int altura) {
-        this.setTipoJogo(tipoJogo);
-        this.setAcabou(false);
-        this.setLargura(largura);
-        this.setAltura(altura);
-        this.setSize(largura, altura);
-        this.setJ1(j1);
-        this.setB(b);
-    }
+    private LinhaObstaculo linhaObstaculoEsq;
+    private LinhaObstaculo linhaObstaculoDir;
+    private BordaObstaculo bordaObstaculo;
 
     public abstract void iniciarPong();
 
@@ -35,14 +30,14 @@ public abstract class Pong extends JPanel {
             return;
         }
 
-        getB().reiniciar();
+        getBola().reiniciar();
     }
 
-    public Jogador getJ1() {
-        return j1;
+    public Jogador getJogadorEsq() {
+        return jogadorEsq;
     }
-    public Jogador getJ2() {
-        return j2;
+    public Jogador getJogadorDir() {
+        return jogadorDir;
     }
 
     public int getLargura() {
@@ -61,20 +56,20 @@ public abstract class Pong extends JPanel {
         this.altura = altura;
     }
 
-    public void setJ1(Jogador j1) {
-        this.j1 = j1;
+    public void setJogadorEsq(Jogador jogadorEsq) {
+        this.jogadorEsq = jogadorEsq;
     }
 
-    public void setJ2(Jogador j2) {
-        this.j2 = j2;
+    public void setJogadorDir(Jogador jogadorDir) {
+        this.jogadorDir = jogadorDir;
     }
 
-    public Bola getB() {
-        return b;
+    public Bola getBola() {
+        return bola;
     }
 
-    public void setB(Bola b) {
-        this.b = b;
+    public void setBola(Bola bola) {
+        this.bola = bola;
     }
 
     public boolean isTipoJogo() {
@@ -91,5 +86,29 @@ public abstract class Pong extends JPanel {
 
     public void setAcabou(boolean acabou) {
         this.acabou = acabou;
+    }
+
+    public LinhaObstaculo getLinhaObstaculoEsq() {
+        return linhaObstaculoEsq;
+    }
+
+    public void setLinhaObstaculoEsq(LinhaObstaculo linhaObstaculoEsq) {
+        this.linhaObstaculoEsq = linhaObstaculoEsq;
+    }
+
+    public LinhaObstaculo getLinhaObstaculoDir() {
+        return linhaObstaculoDir;
+    }
+
+    public void setLinhaObstaculoDir(LinhaObstaculo linhaObstaculoDir) {
+        this.linhaObstaculoDir = linhaObstaculoDir;
+    }
+
+    public BordaObstaculo getBordaObstaculo() {
+        return bordaObstaculo;
+    }
+
+    public void setBordaObstaculo(BordaObstaculo bordaObstaculo) {
+        this.bordaObstaculo = bordaObstaculo;
     }
 }

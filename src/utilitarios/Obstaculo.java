@@ -19,6 +19,10 @@ public class Obstaculo extends Ponto {
         this.setDistParede(distParede);
     }
 
+    public Obstaculo() {}
+
+
+
     @Override
     public void desenhar(Graphics g) {
         // Define as dimensões do obstáculo

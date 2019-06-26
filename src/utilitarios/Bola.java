@@ -2,25 +2,12 @@ package utilitarios;
 
 import java.awt.*;
 
-public class Bola extends Ponto{
+public class Bola extends Ponto {
     private boolean crescente;
     private int inicialX;
     private int inicialY;
     private double inicialVelX;
-
-    public Bola(int x, int y, int dimensao, double velX, double velY, boolean crescente) {
-        this.inicialX = x;
-        this.inicialY = y;
-        setLargura(dimensao);
-        setAltura(dimensao);
-        setX(x);
-        setY(y);
-
-        this.setVelX(-velX);
-        this.setVelY(velY);
-        this.inicialVelX = velX;
-        this.crescente = crescente;
-    }
+    private double inicialVelY;
 
     public void desenhar(Graphics g) {
         // Define o tamanho da bola (getLargura()/2 indica o diâmetro)
@@ -182,5 +169,46 @@ public class Bola extends Ponto{
         setX(inicialX);
         setY(inicialY);
         setVelX(inicialVelX);
+        setVelY(inicialVelY);
+    }
+
+    public boolean isCrescente() {
+        return crescente;
+    }
+
+    public void setCrescente(boolean crescente) {
+        this.crescente = crescente;
+    }
+
+    public int getInicialX() {
+        return inicialX;
+    }
+
+    public void setInicialX(int inicialX) {
+        this.inicialX = inicialX;
+    }
+
+    public int getInicialY() {
+        return inicialY;
+    }
+
+    public void setInicialY(int inicialY) {
+        this.inicialY = inicialY;
+    }
+
+    public double getInicialVelX() {
+        return inicialVelX;
+    }
+
+    public void setInicialVelX(double inicialVelX) {
+        this.inicialVelX = inicialVelX;
+    }
+
+    public double getInicialVelY() {
+        return inicialVelY;
+    }
+
+    public void setInicialVelY(double inicialVelY) {
+        this.inicialVelY = inicialVelY;
     }
 }

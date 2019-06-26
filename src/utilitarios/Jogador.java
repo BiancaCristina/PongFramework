@@ -6,7 +6,7 @@ public class Jogador extends Ponto{
     private boolean aceleracaoSup;
     private boolean aceleracaoInf;
     private int pontuacao;
-
+    /*
     public Jogador(int jogador, int largura, int altura, int distParede, int larguraPainel, int alturaPainel) {
         this.setAceleracaoSup(false);
         this.setAceleracaoInf(false);
@@ -21,12 +21,13 @@ public class Jogador extends Ponto{
         if (jogador == 1) this.setDistParede(distParede);                  // Jogador da esquerda
         else this.setDistParede(larguraPainel - largura - distParede);    // Jogador da direita
     }
+    */
 
     public void desenhar(Graphics g) {
         // Define as dimensões do jogador
 
         g.setColor(Color.white);
-        g.fillRect(getDistParede(), (int) getY(), getLargura(), getAltura());
+        g.fillRect(getDistParede(), getY(), getLargura(), getAltura());
     }
 
     public void mover(int alturaPanel) {

@@ -10,24 +10,6 @@ public class BordaObstaculo {
     private Obstaculo bordaLatDirSup;
     private Obstaculo bordaLatDirInf;
 
-    public BordaObstaculo(
-            int larguraSup,
-            int larguraInf,
-            int larguraLat,
-            int larguraPainel,
-            int alturaSup,
-            int alturaInf,
-            int alturaLat,
-            int alturaPainel
-    ) {
-        setBordaSup(new Obstaculo(larguraSup, alturaSup, 0, 0));
-        setBordaInf(new Obstaculo(larguraInf, alturaInf, alturaPainel - alturaInf - 40, 0));
-        setBordaLatEsqSup(new Obstaculo(larguraLat, alturaLat, 0, 0));
-        setBordaLatEsqInf(new Obstaculo(larguraLat, alturaLat, alturaPainel - alturaLat - 40, 0));
-        setBordaLatDirSup(new Obstaculo(larguraLat, alturaLat, 0, larguraPainel - larguraLat));
-        setBordaLatDirInf(new Obstaculo(larguraLat, alturaLat, alturaPainel - alturaLat - 40, larguraPainel - larguraLat));
-    }
-
     public void desenhar(Graphics g) {
         getBordaSup().desenhar(g);
         getBordaInf().desenhar(g);

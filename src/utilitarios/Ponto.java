@@ -3,13 +3,13 @@ package utilitarios;
 import java.awt.*;
 
 public abstract class Ponto {
-    private double velX;
-    private double velY;
-    private double x;
-    private double y;
     private int largura;
     private int altura;
     private int distParede;
+    private double x;
+    private double y;
+    private double velX;
+    private double velY;
     private final double GRAVIDADE = 0.94;
 
     public abstract void desenhar(Graphics g);

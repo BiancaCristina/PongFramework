@@ -1,23 +1,13 @@
 package utilitarios;
 
+import builders.ObstaculoBuilder;
+
 import java.awt.*;
 
 public class LinhaObstaculo extends Ponto {
     private Obstaculo obstaculo1;
     private Obstaculo obstaculo2;
     private Obstaculo obstaculo3;
-
-    public LinhaObstaculo(int largura, int altura, int alturaPanel, int y, int velY, int distParede) {
-        this.setLargura(largura);
-        this.setAltura(altura);
-        this.setVelY(velY);
-        this.setY(y);
-        this.setDistParede(distParede);
-
-        setObstaculo1(new Obstaculo(largura, altura, y, velY, distParede));
-        setObstaculo2(new Obstaculo(largura, altura, y+alturaPanel/3, velY, distParede));
-        setObstaculo3(new Obstaculo(largura, altura, y+2*(alturaPanel/3), velY, distParede));
-    }
 
     @Override
     public void desenhar(Graphics g) {
