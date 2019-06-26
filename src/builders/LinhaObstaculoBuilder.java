@@ -1,13 +1,12 @@
 package builders;
 
 import utilitarios.LinhaObstaculo;
-import utilitarios.Obstaculo;
 
 public class LinhaObstaculoBuilder {
-    protected LinhaObstaculo linhaObstaculo;
+    protected LinhaObstaculoImpl linhaObstaculo;
 
     public LinhaObstaculoBuilder() {
-        this.linhaObstaculo = new LinhaObstaculo();
+        this.linhaObstaculo = new LinhaObstaculoImpl();
     }
 
     public static LinhaObstaculoBuilder builder() {
@@ -46,9 +45,9 @@ public class LinhaObstaculoBuilder {
         int velY = (int)this.linhaObstaculo.getVelY();
         int distParede = this.linhaObstaculo.getDistParede();
 
-        this.linhaObstaculo.setObstaculo1(new Obstaculo(largura, altura, y, velY, distParede));
-        this.linhaObstaculo.setObstaculo2(new Obstaculo(largura, altura, y+alturaPainel/3, velY, distParede));
-        this.linhaObstaculo.setObstaculo3(new Obstaculo(largura, altura, y+2*(alturaPainel/3), velY, distParede));
+        this.linhaObstaculo.setObstaculo1(new ObstaculoImpl(largura, altura, y, velY, distParede));
+        this.linhaObstaculo.setObstaculo2(new ObstaculoImpl(largura, altura, y+alturaPainel/3, velY, distParede));
+        this.linhaObstaculo.setObstaculo3(new ObstaculoImpl(largura, altura, y+2*(alturaPainel/3), velY, distParede));
 
         return this;
     }

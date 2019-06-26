@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public class Bola extends Ponto {
+public abstract class Bola extends Ponto {
     private boolean crescente;
     private int inicialX;
     private int inicialY;

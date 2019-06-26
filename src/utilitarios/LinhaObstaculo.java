@@ -4,7 +4,7 @@ import builders.ObstaculoBuilder;
 
 import java.awt.*;
 
-public class LinhaObstaculo extends Ponto {
+public abstract class LinhaObstaculo extends Ponto {
     private Obstaculo obstaculo1;
     private Obstaculo obstaculo2;
     private Obstaculo obstaculo3;

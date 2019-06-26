@@ -4,10 +4,10 @@ import utilitarios.BordaObstaculo;
 import utilitarios.Obstaculo;
 
 public class BordaObstaculoBuilder {
-    protected BordaObstaculo bordaObstaculo;
+    protected BordaObstaculoImpl bordaObstaculo;
 
     public BordaObstaculoBuilder() {
-        bordaObstaculo = new BordaObstaculo();
+        bordaObstaculo = new BordaObstaculoImpl();
     }
 
     public static BordaObstaculoBuilder builder() {

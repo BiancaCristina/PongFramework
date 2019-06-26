@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public class BordaObstaculo {
+public abstract class BordaObstaculo {
     private Obstaculo bordaSup;
     private Obstaculo bordaInf;
     private Obstaculo bordaLatEsqSup;

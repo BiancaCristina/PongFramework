@@ -3,10 +3,10 @@ package builders;
 import utilitarios.Jogador;
 
 public class JogadorBuilder {
-    protected Jogador jogador;
+    protected JogadorImpl jogador;
 
     public JogadorBuilder() {
-        this.jogador = new Jogador();
+        this.jogador = new JogadorImpl();
         this.jogador.setAceleracaoSup(false);
         this.jogador.setAceleracaoInf(false);
         this.jogador.setPontuacao(0);

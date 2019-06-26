@@ -2,26 +2,10 @@ package utilitarios;
 
 import java.awt.*;
 
-public class Jogador extends Ponto{
+public abstract class Jogador extends Ponto{
     private boolean aceleracaoSup;
     private boolean aceleracaoInf;
     private int pontuacao;
-    /*
-    public Jogador(int jogador, int largura, int altura, int distParede, int larguraPainel, int alturaPainel) {
-        this.setAceleracaoSup(false);
-        this.setAceleracaoInf(false);
-        this.setPontuacao(0);
-        this.setLargura(largura);
-        this.setAltura(altura);
-
-        // Informações referente a posição e velocidade iniciais do jogador
-        this.setY(alturaPainel/2);
-        this.setVelY(0);
-
-        if (jogador == 1) this.setDistParede(distParede);                  // Jogador da esquerda
-        else this.setDistParede(larguraPainel - largura - distParede);    // Jogador da direita
-    }
-    */
 
     public void desenhar(Graphics g) {
         // Define as dimensões do jogador

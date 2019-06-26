@@ -3,10 +3,10 @@ package builders;
 import utilitarios.Obstaculo;
 
 public class ObstaculoBuilder {
-    protected Obstaculo obstaculo;
+    protected ObstaculoImpl obstaculo;
 
     public ObstaculoBuilder() {
-        this.obstaculo = new Obstaculo();
+        this.obstaculo = new ObstaculoImpl();
     }
 
     public static ObstaculoBuilder builder() {

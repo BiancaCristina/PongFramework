@@ -1,12 +1,10 @@
 package builders;
 
-import utilitarios.Bola;
-
 public class BolaBuilder {
-    protected Bola bola;
+    protected BolaImpl bola;
 
     public BolaBuilder() {
-        this.bola = new Bola();
+        this.bola = new BolaImpl();
     }
 
     public static BolaBuilder builder() {
@@ -48,7 +46,7 @@ public class BolaBuilder {
         return this;
     }
 
-    public Bola get() {
+    public BolaImpl get() {
         return this.bola;
     }
 }
