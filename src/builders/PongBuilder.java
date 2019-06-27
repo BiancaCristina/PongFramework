@@ -1,6 +1,6 @@
 package builders;
 
-import utilitarios.Pong;
+import template.Pong;
 import utilitarios.*;
 
 public abstract class PongBuilder {
