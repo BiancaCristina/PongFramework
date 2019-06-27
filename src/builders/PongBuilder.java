@@ -1,16 +1,16 @@
 package builders;
 
-import pong.Pong;
+import utilitarios.Pong;
 import utilitarios.*;
 
-public interface PongBuilder {
-    PongBuilder definirLargura(int largura);
-    PongBuilder definirAltura(int altura);
-    PongBuilder definirTipoJogo(boolean tipoJogo);
-    PongBuilder criarBola(Bola bola);
-    PongBuilder criarJogadores(Jogador... jogadores);
-    PongBuilder criarObstaculos(Obstaculo... obstaculos);
-    PongBuilder criarLinhaObstaculos(LinhaObstaculo... linhaObstaculos);
-    PongBuilder criarBorda(BordaObstaculoBuilder borda);
-    Pong get();
+public abstract class PongBuilder {
+    public abstract PongBuilder criarJogadores(Jogador... jogadores);
+    public abstract PongBuilder criarObstaculos(Obstaculo... obstaculos);
+    public abstract PongBuilder criarLinhaObstaculos(LinhaObstaculo... linhaObstaculos);
+    public abstract PongBuilder criarBorda(BordaObstaculo borda);
+    public abstract PongBuilder definirLargura(int largura);
+    public abstract PongBuilder definirAltura(int altura);
+    public abstract PongBuilder definirTipoJogo(boolean tipoJogo);
+    public abstract PongBuilder criarBola(Bola bola);
+    public abstract Pong get();
 }

@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public abstract class Bola extends Ponto {
+public class Bola extends Ponto {
     private boolean crescente;
     private int inicialX;
     private int inicialY;
@@ -21,8 +21,13 @@ public abstract class Bola extends Ponto {
         setY(getY() + getVelY());
 
         // Ao atingir a borda superior ou inferior, rebate a bola
+        verificaColisao(alturaPanel);
+    }
+
+    public void verificaColisao(int alturaPainel) {
+        // Colisão com a parede
         if (getY() < 0) setVelY(-getVelY());
-        else if (getY() > alturaPanel - getLargura()*2) setVelY(-getVelY());
+        else if (getY() > alturaPainel - getLargura()*2) setVelY(-getVelY());
     }
 
     public void verificaColisao(Jogador j1, Jogador j2, int larguraPanel) {

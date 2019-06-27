@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public abstract class Obstaculo extends Ponto {
+public class Obstaculo extends Ponto {
 
     public Obstaculo(int largura, int altura, int y, int velY, int distParede) {
         this.setLargura(largura);

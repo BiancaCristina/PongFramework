@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public abstract class Jogador extends Ponto{
+public class Jogador extends Ponto{
     private boolean aceleracaoSup;
     private boolean aceleracaoInf;
     private int pontuacao;

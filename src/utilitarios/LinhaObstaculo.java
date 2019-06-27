@@ -2,7 +2,7 @@ package utilitarios;
 
 import java.awt.*;
 
-public abstract class LinhaObstaculo extends Ponto {
+public class LinhaObstaculo extends Ponto {
     private Obstaculo obstaculo1;
     private Obstaculo obstaculo2;
     private Obstaculo obstaculo3;
