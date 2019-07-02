@@ -11,12 +11,12 @@ public class PongFrame extends JFrame implements KeyListener {
     private Pong pong;
 
     public PongFrame(int largura, int altura, Pong pong) {
+        this.pong = pong;
         setSize(largura, altura);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
-        add(pong);
-        addKeyListener(this);
+        add(this.pong);
         setVisible(true);
     }
 
