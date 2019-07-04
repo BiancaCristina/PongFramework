@@ -1,33 +1,47 @@
 package interfaces;
 
+import builders.BolaBuilder;
 import template.Pong;
+import utilitarios.Bola;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class PongFrame extends JFrame implements KeyListener {
-    private Pong pong;
+public abstract class PongFrame extends JFrame implements KeyListener {
+    Pong pong;
 
-    public PongFrame(int largura, int altura, Pong pong) {
-        this.pong = pong;
-        setSize(largura, altura);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-        add(this.pong);
-        setVisible(true);
-    }
+    public abstract void instanciarPong();
+    public abstract void instanciarBorda();
+    public abstract void instanciarLinhaObstaculo();
+    public abstract void instanciarJogadores(int tamanhoJogador);
+    public abstract void iniciarJogo();
 
     public PongFrame(int largura, int altura) {
         setSize(largura, altura);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-        addKeyListener(this);
-        setVisible(true);
+        setLayout(null);
+        this.addKeyListener(this);
     }
+
+    public Bola instanciarBola(Bola bola, int velocidadeBola, boolean crescente) {
+        // Passar singleton aqui
+        bola = BolaBuilder
+                .builder()
+                .definirX(350)
+                .definirY(250)
+                .definirDimensao(20)
+                .definirVelX(velocidadeBola)
+                .definirVelY(1)
+                .definirCrescente(crescente)
+                .get();
+
+        return bola;
+    }
+
+
 
     @Override
     public void keyPressed(KeyEvent e) {
