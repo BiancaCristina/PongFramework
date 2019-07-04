@@ -1,4 +1,4 @@
-package interfaces;
+package template;
 
 import builders.BolaBuilder;
 import template.Pong;
@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public abstract class PongFrame extends JFrame implements KeyListener {
-    Pong pong;
+    private Pong pong;
 
     public abstract void instanciarPong();
     public abstract void instanciarBorda();
@@ -40,8 +40,6 @@ public abstract class PongFrame extends JFrame implements KeyListener {
 
         return bola;
     }
-
-
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -89,4 +87,12 @@ public abstract class PongFrame extends JFrame implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {}
+
+    public Pong getPong() {
+        return pong;
+    }
+
+    public void setPong(Pong pong) {
+        this.pong = pong;
+    }
 }

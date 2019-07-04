@@ -22,15 +22,13 @@ Por fim, recomenda-se a utilização de uma IDE para facilitar a implementação
 
 <a name="Pad"></a>
 ## 3. Padrões de Projeto
-Para o desenvolvimento do framework, foram utilizados três padrões de projeto: Template Method, Builder e Singleton. O papel de cada um deles para o projeto serão explicados na sequência.
+Para o desenvolvimento do framework, foram utilizados dois padrões de projeto: Template Method e Builder. O papel de cada um deles para o projeto serão explicados na sequência.
 
 O Template Method foi utilizado para que o usuário conseguisse personalizar o seu próprio pong a partir de um escopo parcialmente definido. Dessa forma, é possível que o usuário instancie um pong com as funções básicas que já foram definidas ou que ele crie novas funcionalidades. 
 
 (INCLUIR AQUI DIAGRAMA QUE MOSTRA O TEMPLATE METHOD DO PONG)
 
 Já o Builder foi implementado para suprimir o uso de vários construtores para uma mesma entidade. Desse modo, utiliza-se o Builder de cada entidade para que sejam definidos os atributos das mesmas. 
-
-Por fim, o Singleton foi usado para guardar informações acerca das entidades do sistema a fim de facilitar a instanciação de novos objetos do tipo Ponto. 
 
 <a name="Recursos"></a>
 ## 4. Recursos Oferecidos

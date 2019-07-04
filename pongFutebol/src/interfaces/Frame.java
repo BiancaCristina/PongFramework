@@ -1,16 +1,16 @@
 package interfaces;
 
 import builder.PongFutebolBuilder;
-import builders.BolaBuilder;
 import builders.BordaObstaculoBuilder;
 import builders.JogadorBuilder;
 import builders.LinhaObstaculoBuilder;
-import pong.PongFutebol;
+import builders.UtilitariosBuilder;
+import template.PongFrame;
 import utilitarios.Bola;
 import utilitarios.BordaObstaculo;
 import utilitarios.Jogador;
 import utilitarios.LinhaObstaculo;
-import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,7 +22,6 @@ public class Frame extends PongFrame {
     private Jogador j1;
     private Jogador j2;
     private Bola bola;
-    //private PongFutebol pong;
     private LinhaObstaculo linhaObstaculo1;
     private LinhaObstaculo linhaObstaculo2;
     private BordaObstaculo bordaObstaculo;
@@ -38,58 +37,21 @@ public class Frame extends PongFrame {
     }
 
     public void instanciarJogadores(int tamanhoJogador) {
-        j1 = JogadorBuilder
-                .builder()
-                .definirLargura(20)
-                .definirAltura(tamanhoJogador)
-                .definirDistParede(40)
-                .definirLado(1, 800)
-                .definirPosicaoInicial(600)
-                .get();
-
-        j2 = JogadorBuilder
-                .builder()
-                .definirLargura(20)
-                .definirAltura(tamanhoJogador)
-                .definirDistParede(40)
-                .definirLado(2, 800)
-                .definirPosicaoInicial(600)
-                .get();
+        j1 = UtilitariosBuilder.builder().criarJogador1(tamanhoJogador);
+        j2 = UtilitariosBuilder.builder().criarJogador2(tamanhoJogador);
     }
 
     public void instanciarBorda() {
-        bordaObstaculo = BordaObstaculoBuilder
-                .builder()
-                .criarBordaSuperior(800, 20)
-                .criarBordaInferior(800, 20, 600)
-                .criarBordaLateral(20, 150, 800, 600)
-                .get();
+        bordaObstaculo = UtilitariosBuilder.builder().criarBorda();
     }
 
     public void instanciarLinhaObstaculo() {
-        linhaObstaculo1 = LinhaObstaculoBuilder
-                .builder()
-                .definirLargura(10)
-                .definirAltura(60)
-                .definirY(5)
-                .definirVelY(2)
-                .definirDistParede(800-550)
-                .criarLinhaObstaculos(600)
-                .get();
-
-        linhaObstaculo2 = LinhaObstaculoBuilder
-                .builder()
-                .definirLargura(10)
-                .definirAltura(60)
-                .definirY(45)
-                .definirVelY(2)
-                .definirDistParede(800-250)
-                .criarLinhaObstaculos(600)
-                .get();
+        linhaObstaculo1 = UtilitariosBuilder.builder().criarLinhaObstaculo1(getHeight(), 250);
+        linhaObstaculo2 = UtilitariosBuilder.builder().criarLinhaObstaculo2(getHeight(), 550);
     }
 
     public void instanciarPong() {
-        pong = (PongFutebol) PongFutebolBuilder
+        setPong(PongFutebolBuilder
                 .builder()
                 .definirLargura(800)
                 .definirAltura(600)
@@ -97,18 +59,18 @@ public class Frame extends PongFrame {
                 .criarJogadores(j1, j2)
                 .criarLinhaObstaculos(linhaObstaculo1, linhaObstaculo2)
                 .criarBorda(bordaObstaculo)
-                .get();
+                .get());
 
         // Remove o painel de opções
         painel.setVisible(false);
         remove(painel);
 
         // Cria o Pong
-        pong.setVisible(true);
+        getPong().setVisible(true);
         setLayout(new BorderLayout());
-        add(pong);
+        add(getPong());
 
-        new Thread(() -> pong.iniciarPong()).start();
+        new Thread(() -> getPong().iniciarPong()).start();
     }
 
     public void iniciarJogo() {
@@ -140,7 +102,7 @@ public class Frame extends PongFrame {
                 }
 
                 else if (janela == 4) {
-                    pong = (PongFutebol) PongFutebolBuilder.builder().definirTipoJogo(true).get();
+                    setPong(PongFutebolBuilder.builder().definirTipoJogo(true).get());
                     iniciarJogo();
                 }
             }
@@ -168,7 +130,7 @@ public class Frame extends PongFrame {
                 }
 
                 else if (janela == 4) {
-                    pong = (PongFutebol) PongFutebolBuilder.builder().definirTipoJogo(false).get();
+                    setPong(PongFutebolBuilder.builder().definirTipoJogo(false).get());
                     iniciarJogo();
                 }
             }
