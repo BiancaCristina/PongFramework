@@ -1,32 +1,26 @@
 package interfaces;
 
 import builder.PongParedaoBuilder;
-import builders.BolaBuilder;
-import builders.JogadorBuilder;
+import builders.UtilitariosBuilder;
 import pong.PongParedao;
+import template.PongFrame;
 import utilitarios.Bola;
 import utilitarios.Jogador;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Frame extends JFrame {
+public class Frame extends PongFrame {
     private Painel painel;
     private boolean crescente;
     private int janela;
     private Jogador j1;
     private Bola bola;
-    private PongParedao pongParedao;
 
     public Frame(int largura, int altura) {
+        super(largura, altura);
         this.janela = 1;
-
-        setSize(largura, altura);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(null);
 
         painel = new Painel(largura, altura);
         addMouseListenerImagens();
@@ -34,48 +28,39 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 
-    protected void instanciarJogadores(int tamanhoJogador) {
-        j1 = JogadorBuilder
-                .builder()
-                .definirLargura(20)
-                .definirAltura(tamanhoJogador)
-                .definirDistParede(5)
-                .definirLado(1, 800)
-                .definirPosicaoInicial(600)
-                .get();
+    public void instanciarJogadores(int tamanhoJogador) {
+        j1 = UtilitariosBuilder.builder().criarJogador1(tamanhoJogador);
     }
 
-    protected void instanciarBola(int velocidadeBola) {
-        bola = BolaBuilder
-                .builder()
-                .definirX(350)
-                .definirY(250)
-                .definirDimensao(20)
-                .definirVelX(velocidadeBola)
-                .definirVelY(1)
-                .definirCrescente(crescente)
-                .get();
-    }
-
-    protected void instanciarPong() {
-        pongParedao = (PongParedao) PongParedaoBuilder
+    public void instanciarPong() {
+        setPong(PongParedaoBuilder
                 .builder()
                 .definirLargura(800)
                 .definirAltura(600)
                 .criarBola(bola)
                 .criarJogadores(j1)
-                .get();
+                .get());
 
         // Remove o painel de opções
         painel.setVisible(false);
         remove(painel);
 
         // Cria o Pong
-        pongParedao.setVisible(true);
+        getPong().setVisible(true);
         setLayout(new BorderLayout());
-        add(pongParedao);
+        add(getPong());
 
-        new Thread(() -> pongParedao.iniciarPong()).start();
+        new Thread(() -> getPong().iniciarPong()).start();
+    }
+
+    @Override
+    public void instanciarBorda() {
+
+    }
+
+    @Override
+    public void instanciarLinhaObstaculo() {
+
     }
 
     public void iniciarJogo() {
@@ -99,13 +84,13 @@ public class Frame extends JFrame {
                 }
 
                 else if (janela == 3) {
-                    instanciarBola(3);
+                    bola = instanciarBola(bola,3, crescente);
                     painel.escolherModo();
                     janela++;
                 }
 
                 else if (janela == 4) {
-                    pongParedao = (PongParedao) PongParedaoBuilder.builder().definirTipoJogo(true).get();
+                    setPong(PongParedaoBuilder.builder().definirTipoJogo(true).get());
                     iniciarJogo();
                 }
             }
@@ -127,13 +112,13 @@ public class Frame extends JFrame {
                 }
 
                 else if (janela == 3) {
-                    instanciarBola(5);
+                    bola = instanciarBola(bola,5, crescente);
                     painel.escolherModo();
                     janela++;
                 }
 
                 else if (janela == 4) {
-                    pongParedao = (PongParedao) PongParedaoBuilder.builder().definirTipoJogo(false).get();
+                    setPong(PongParedaoBuilder.builder().definirTipoJogo(false).get());
                     iniciarJogo();
                 }
             }
@@ -149,7 +134,7 @@ public class Frame extends JFrame {
                 }
 
                 else if (janela == 3) {
-                    instanciarBola(7);
+                    bola = instanciarBola(bola,7, crescente);
                     painel.escolherModo();
                     janela++;
                 }
