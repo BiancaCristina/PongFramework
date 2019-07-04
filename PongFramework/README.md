@@ -24,7 +24,7 @@ Por fim, recomenda-se a utilização de uma IDE para facilitar a implementação
 ## 3. Padrões de Projeto
 Para o desenvolvimento do framework, foram utilizados dois padrões de projeto: Template Method e Builder. O papel de cada um deles para o projeto serão explicados na sequência.
 
-O Template Method foi utilizado para que o usuário conseguisse personalizar o seu próprio pong a partir de um escopo parcialmente definido. Dessa forma, é possível que o usuário instancie um pong com as funções básicas que já foram definidas ou que ele crie novas funcionalidades. 
+O Template Method foi utilizado para que o usuário conseguisse personalizar o seu próprio pong a partir de um escopo parcialmente definido. Dessa forma, é possível que o usuário instancie um pong com as funções básicas que já foram definidas ou que ele crie novas funcionalidades. Além disso, existe um template especialmente para o frame do Pong, o qual permite que o usuário personalize a instância dos utilitários.
 
 (INCLUIR AQUI DIAGRAMA QUE MOSTRA O TEMPLATE METHOD DO PONG)
 

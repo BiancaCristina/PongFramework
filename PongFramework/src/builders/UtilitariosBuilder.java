@@ -5,9 +5,6 @@ import utilitarios.BordaObstaculo;
 import utilitarios.Jogador;
 import utilitarios.LinhaObstaculo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class UtilitariosBuilder {
     protected Bola bola;
     protected Jogador j1;
